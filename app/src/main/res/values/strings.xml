@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Ftiga</string>
+    <string name="belum_punya_akun">Belum punya akun? <font fgcolor='#fe0002'>Daftar Sekarang</font></string>
 </resources>
