@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".content_movies">
+
+    <TextView
+        android:id="@+id/txtTitleContent"
+        android:layout_width="388dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="16dp"
+        android:text="Title"
+        android:textColor="#000000"
+        android:textSize="27sp" />
+
+    <TextView
+        android:id="@+id/txtYearContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="285dp"
+        android:layout_marginRight="285dp"
+        android:text="2019"
+        android:textColor="#000000"
+        android:textSize="22sp" />
+
+    <ImageView
+        android:id="@+id/imgContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TV-MA"
+            android:layout_marginTop="13dp"
+            android:textSize="18sp"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/txtDurationContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="13dp"
+            android:text="durasi"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/txtGenreContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="genre"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="13dp"
+            android:textSize="18sp"
+            android:textColor="#238ADD"/>
+        <TextView
+            android:id="@+id/txtRegionalContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="regional"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="13dp"
+            android:textSize="18sp"
+            android:textColor="#238ADD"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtSinopsis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginRight="16dp"
+        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, "
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Director:"
+            android:layout_marginTop="13dp"
+            android:textSize="18sp"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/txtDirector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="director"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="13dp"
+            android:textSize="18sp"
+            android:textColor="#238ADD"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cast:"
+            android:layout_marginTop="13dp"
+            android:textSize="18sp"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/txtCast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="cast"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="13dp"
+            android:textSize="18sp"
+            android:textColor="#238ADD"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Production Country:"
+            android:layout_marginTop="13dp"
+            android:textSize="18sp"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/txtProductionCountry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="production country"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="13dp"
+            android:textSize="18sp"
+            android:textColor="#238ADD"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
