@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".FormIde1">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_form_ide1"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/merah"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:title="Form Pengajuan Donasi">
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:id="@+id/sView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:id="@+id/formide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/judulWrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/edtjudul"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Judul Ide"
+                    android:textSize="25sp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/targetWrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/judulWrapper">
+
+                <TextView
+                    android:id="@+id/txtRp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp."
+                    android:textSize="25sp"/>
+
+                <EditText
+                    android:id="@+id/edttarget"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Target Donasi"
+                    android:textSize="25sp" />
+
+
+            </LinearLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/dateWrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/targetWrapper">>
+
+                <EditText
+                    android:id="@+id/edtdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Batas Waktu Penggalangan Dana"
+                    android:inputType="date"
+                    android:textSize="25sp"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_foto1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:orientation="vertical"
+                android:layout_below="@+id/dateWrapper"
+                android:layout_marginTop="30dp">
+
+                <TextView
+                    android:id="@+id/choose"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Uplode Foto"
+                    android:textSize="25sp"/>
+
+                <Button
+                    android:id="@+id/btnChoose"
+                    android:text="Choose"
+                    android:layout_weight="1"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#fff"
+                    android:background="@color/merah"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imgView"
+                android:layout_below="@+id/layout_foto1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btnnext2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgView"
+                android:layout_marginLeft="210dp"
+                android:layout_marginTop="30dp"
+                android:text="Next"
+                android:textColor="#fff"
+                android:background="@color/merah"
+                android:layout_marginBottom="30dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
