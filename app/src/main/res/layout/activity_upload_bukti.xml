@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbUploadBkt"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorYellow"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:title="Upload Bukti Donasi"></android.support.v7.widget.Toolbar>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <!--<TextView-->
+            <!--android:id="@+id/titlePemb"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:text="UPLOAD BUKTI"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textSize="30dp" />-->
+        <!--<TextView-->
+            <!--android:id="@+id/titlePemb1"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:layout_below="@+id/titlePemb"-->
+            <!--android:layout_marginTop="-9dp"-->
+            <!--android:text="DONASI"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textSize="30dp" />-->
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/addImage"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@color/colorLightGrey"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp"
+            android:src="@drawable/addimage" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+        <Button
+            android:id="@+id/btnPilih"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pilih Gambar"
+            android:background="@color/colorYellow"
+            android:textColor="@color/colorWhite"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+        <Button
+            android:id="@+id/btnUploadBkt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorPrimary"/>
+    </LinearLayout>
+
+</LinearLayout>
