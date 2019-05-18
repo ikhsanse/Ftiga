@@ -1,74 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF"
     tools:context=".FragmentActivity"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp">
+    android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/layout_top"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_home"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="80dp">
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorWhite"
+        app:titleTextColor="@color/merah"
+        app:title="Fund For Food">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    </android.support.v7.widget.Toolbar>
 
-            <com.example.ftiga._sliders.SliderView
-                android:id="@+id/sliderView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-
-        </FrameLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/bg_indicator"/>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical">
 
         <LinearLayout
-            android:id="@+id/pagesContainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="bottom"
-            android:layout_marginBottom="8dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    </RelativeLayout>
+            <com.synnapps.carouselview.CarouselView
+                android:id="@+id/carouselView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:fillColor="#FFFFFFFF"
+                app:pageColor="#00000000"
+                app:radius="6dp"
+                app:slideInterval="3000"
+                app:strokeColor="#FF777777"
+                app:strokeWidth="1dp"
+                android:layout_marginBottom="13dp"/>
 
-    <LinearLayout
-        android:id="@+id/layout_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/layout_top"
-        android:layout_marginTop="10dp">
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mari Wujudkan Ide!"
-            android:textSize="25dp"
-            android:textStyle="bold"/>
-    </LinearLayout>
+        </LinearLayout>
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/layout_text"
-        android:layout_marginTop="10dp">
-
-    </ListView>
+    </ScrollView>
 
 
-
-
-</RelativeLayout>
+</LinearLayout>
