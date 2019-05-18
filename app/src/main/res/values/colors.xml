@@ -9,4 +9,5 @@
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#ffff</color>
     <color name="merah">#CC363A</color>
+    <color name="colorLightGrey">#D3D3D3</color>
 </resources>

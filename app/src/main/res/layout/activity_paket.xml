@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PaketActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/pilih_paket"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorYellow"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:title="Pilih Paket"></android.support.v7.widget.Toolbar>
+
+
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/paket_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            tools:itemCount="3">></android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>
