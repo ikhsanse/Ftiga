@@ -42,6 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
         nama = (EditText) findViewById(R.id.edtnama);
         email = (EditText)findViewById(R.id.edtemail);
         password = (EditText)findViewById(R.id.edtpassword);
+        kpassword = (EditText)findViewById(R.id.kpassword);
 
 
         btnDaftar = (Button)findViewById(R.id.btndaftar);

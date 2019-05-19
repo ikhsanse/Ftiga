@@ -65,6 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:hint="Password"
+                android:inputType="textPassword"
                 android:textColorHint="@color/colorRed" />
 
         </android.support.design.widget.TextInputLayout>
@@ -79,6 +80,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Konfirmasi Password"
                 android:textColorHint="@color/colorRed"
+                android:inputType="textPassword"
                 android:id="@+id/kpassword"/>
 
         </android.support.design.widget.TextInputLayout>
