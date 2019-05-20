@@ -4,16 +4,14 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -44,6 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
         nama = (EditText) findViewById(R.id.edtnama);
         email = (EditText)findViewById(R.id.edtemail);
         password = (EditText)findViewById(R.id.edtpassword);
+        kpassword = (EditText)findViewById(R.id.kpassword);
 
 
         btnDaftar = (Button)findViewById(R.id.btndaftar);

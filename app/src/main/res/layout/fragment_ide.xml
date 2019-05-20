@@ -1,21 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_light">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".FragmentActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp">
+            android:layout_height="match_parent">
+
             <ImageView
+                android:id="@+id/gambar_ide"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="1dp"
+                android:src="@drawable/slide_3" />
+
+            <RelativeLayout
+                android:id="@+id/layout_text2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/samsuri"/>
+                android:layout_below="@id/gambar_ide">
+
+                <TextView
+                    android:id="@+id/text_view1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="MARI KITA WUJUDKAN IDE KREATIF MEREKA"
+                    android:textStyle="bold"
+                    android:textSize="30sp"
+                    android:typeface="serif"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/text_view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/text_view1"
+                    android:layout_marginTop="30dp"
+                    android:text="''Sedekah akan membuatmu lebih pantas untuk diamanahkan mendapatkan kekayaan''"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:typeface="serif"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/text_view3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/text_view2"
+                    android:layout_marginTop="30dp"
+                    android:text="Luangkan waktumu untuk mendonasikan sedikit uangmu agar ide mereka dapat terwujud."
+                    android:textSize="15sp"
+                    android:typeface="serif"
+                    android:gravity="center"/>
+
+                <Button
+                    android:id="@+id/btnnext1"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/text_view3"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Buat Ide"
+                    android:textColor="#fff"
+                    android:background="@color/merah"
+                    android:layout_marginBottom="10dp"/>
+
+            </RelativeLayout>
+
         </RelativeLayout>
-    </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
