@@ -71,7 +71,7 @@
                     android:text="Buat Ide"
                     android:textColor="#fff"
                     android:background="@color/merah"
-                    android:layout_marginBottom="10dp"/>
+                    android:layout_marginBottom="20dp"/>
 
             </RelativeLayout>
 

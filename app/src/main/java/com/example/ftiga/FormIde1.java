@@ -40,6 +40,15 @@ public class FormIde1 extends AppCompatActivity {
             }
         });
 
+        Button btnNext2 = (Button) findViewById(R.id.btnnext2);
+        btnNext2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FormIde1.this, FormIde2.class);
+                startActivity(intent);
+                }
+        });
+
         //Tombol back
         Toolbar tb = (Toolbar) findViewById(R.id.tb_form_ide1);
         setSupportActionBar(tb);

@@ -43,7 +43,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Judul Ide"
-                    android:textSize="25sp" />
+                    android:textSize="23sp" />
             </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
@@ -59,14 +59,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rp."
-                    android:textSize="25sp"/>
+                    android:textSize="23sp"/>
 
                 <EditText
                     android:id="@+id/edttarget"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Target Donasi"
-                    android:textSize="25sp" />
+                    android:textSize="23sp" />
 
 
             </LinearLayout>
@@ -86,7 +86,7 @@
                     android:ems="10"
                     android:hint="Batas Waktu Penggalangan Dana"
                     android:inputType="date"
-                    android:textSize="25sp"/>
+                    android:textSize="23sp"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -103,14 +103,14 @@
                     android:id="@+id/choose"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Uplode Foto"
-                    android:textSize="25sp"/>
+                    android:text="Pilih Foto"
+                    android:textSize="23sp"/>
 
                 <Button
                     android:id="@+id/btnChoose"
                     android:text="Choose"
                     android:layout_weight="1"
-                    android:layout_width="200dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:textColor="#fff"
