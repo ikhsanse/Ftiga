@@ -58,7 +58,7 @@
                     android:id="@+id/txtRp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rp."
+                    android:text="Rp"
                     android:textSize="23sp"/>
 
                 <EditText

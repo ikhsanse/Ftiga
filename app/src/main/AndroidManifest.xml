@@ -18,10 +18,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DonaturActivity"></activity>
+        <activity android:name=".FragmentActivity"></activity>
         <activity android:name=".FormIde1" />
+        <activity android:name=".FormIde2" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".FragmentActivity">
+        <activity android:name=".MainDonatur">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
