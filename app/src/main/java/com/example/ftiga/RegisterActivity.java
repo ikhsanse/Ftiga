@@ -104,7 +104,9 @@ public class RegisterActivity extends AppCompatActivity {
         String result = "";
 
         HttpClient client = new DefaultHttpClient();
-        HttpPost request = new HttpPost("http://192.168.0.9/test/insert_users.php");
+//        HttpPost request = new HttpPost("http://192.168.0.14/test/insert_users.php");
+        HttpPost request = new HttpPost("http://192.168.0.14:8000/api/user/register");
+
         try{
             List<NameValuePair> nvp = new ArrayList<NameValuePair>(6);
             nvp.add(new BasicNameValuePair("nama",nama));
