@@ -1,5 +1,6 @@
 package com.example.ftiga;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.gson.Gson;
 
@@ -47,6 +49,15 @@ public class FormIde2 extends AppCompatActivity implements EditorControlBar.Edit
         editorControlBar = findViewById(R.id.controlBar);
         editorControlBar.setEditorControlListener(this);
         editorControlBar.setEditor(markDEditor);
+
+        Button btnNext3 = (Button) findViewById(R.id.btnnext3);
+        btnNext3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FormIde2.this, form_ide3.class);
+                startActivity(intent);
+            }
+        });
 
         //Tombol back
         Toolbar tb = (Toolbar) findViewById(R.id.tb_form_ide2);

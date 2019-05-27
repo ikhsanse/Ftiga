@@ -78,15 +78,12 @@
                 android:layout_marginTop="30dp"
                 android:layout_below="@+id/targetWrapper">>
 
-                <EditText
-                    android:id="@+id/edtdate"
+                <TextView
+                    android:id="@+id/tvDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
                     android:hint="Batas Waktu Penggalangan Dana"
-                    android:inputType="date"
-                    android:textSize="23sp"/>
+                    android:textSize="22sp"/>
 
             </android.support.design.widget.TextInputLayout>
 

@@ -7,17 +7,27 @@
     android:orientation="vertical"
     tools:context=".DeskIdeActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/detail_ide"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/merah"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:title="Detail Ide">
+
+    </android.support.v7.widget.Toolbar>
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbarId"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         android:gravity="center"
-        android:elevation="0dp">
+        android:elevation="0dp"
+        android:background="@color/colorWhite">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:src="@drawable/slide_3"
             />
 
