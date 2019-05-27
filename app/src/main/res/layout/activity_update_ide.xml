@@ -2,13 +2,96 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:id="@+id/sView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical">
+
+    <LinearLayout
+        android:id="@+id/formide"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hallo Update"
-        android:layout_centerInParent="true"/>
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/judulWrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/updjudul"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Judul Ide"
+                    android:textSize="23sp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/deskWrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/updDesk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Deskripsi"
+                    android:textSize="23sp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_fotoupdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:orientation="vertical"
+                android:layout_marginTop="30dp">
+
+                <TextView
+                    android:id="@+id/pilih"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pilih Foto"
+                    android:textSize="23sp"/>
+
+                <Button
+                    android:id="@+id/btnFoto"
+                    android:text="Choose"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#fff"
+                    android:background="@color/merah"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imgView"
+                android:layout_below="@+id/layout_fotoupdt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgView"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:text="Submit"
+                android:textColor="#fff"
+                android:background="@color/merah"
+                android:layout_marginBottom="30dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

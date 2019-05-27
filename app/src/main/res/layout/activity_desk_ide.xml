@@ -18,12 +18,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10dp"
-            android:src="@drawable/samsuri"
+            android:src="@drawable/slide_3"
             />
 
     </android.support.design.widget.AppBarLayout>
-
-
 
     <android.support.design.widget.TabLayout
         android:layout_width="match_parent"
@@ -33,7 +31,7 @@
         android:id="@+id/tablayoutid"
         app:tabTextColor="@color/colorWhite"
         app:tabIndicatorColor="@color/colorWhite"
-        android:background="@color/colorPrimary"/>
+        android:background="@color/merah"/>
 
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"

@@ -24,8 +24,8 @@ public class DeskIdeActivity extends AppCompatActivity {
 
         adapter.AddFragment(new FragmentDeskripsiIde(), "Deskripsi");
         adapter.AddFragment(new FragmentPaketIde(), "Paket");
-        adapter.AddFragment(new FragmentUpdateIde(), "Update");
         adapter.AddFragment(new FragmentDonaturIde(), "Donatur");
+        adapter.AddFragment(new FragmentUpdateIde(), "Update");
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);

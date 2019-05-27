@@ -10,7 +10,7 @@
         android:id="@+id/toolbUploadBkt"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorYellow"
+        android:background="@color/merah"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:title="Upload Bukti Donasi"></android.support.v7.widget.Toolbar>
     <RelativeLayout
@@ -51,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Pilih Gambar"
-            android:background="@color/colorYellow"
+            android:background="@color/colorPrimary"
             android:textColor="@color/colorWhite"/>
     </LinearLayout>
     <LinearLayout
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:text="Upload"
             android:textColor="@color/colorWhite"
-            android:background="@color/colorPrimary"/>
+            android:background="@color/merah"/>
     </LinearLayout>
 
 </LinearLayout>
