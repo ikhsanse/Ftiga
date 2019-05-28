@@ -17,7 +17,6 @@ public class HomeFragment extends Fragment {
     CarouselView carouselView;
     int[] sampleImages = {R.drawable.slide_1, R.drawable.slide_2, R.drawable.slide_3};
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
@@ -27,10 +26,7 @@ public class HomeFragment extends Fragment {
         carouselView.setPageCount(sampleImages.length);
         carouselView.setImageListener(imageListener);
 
-//        String id = get
         return rootView;
-
-
     }
 
     ImageListener imageListener = new ImageListener() {

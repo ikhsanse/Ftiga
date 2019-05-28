@@ -18,12 +18,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".DeskIdeActivity" />
+        <activity android:name=".DeskIdeActivity"></activity>
         <activity android:name=".FormIde1" />
         <activity android:name=".FormIde2" />
+        <activity android:name=".form_ide3" />
+        <activity android:name=".form_ide4" />
+        <activity android:name=".LoginActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".FragmentActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,7 +35,6 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".FlashActivity" />
         <activity android:name=".PaketActivity" />
-        <activity android:name=".FragmentActivity" />
     </application>
 
 </manifest>

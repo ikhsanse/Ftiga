@@ -3,8 +3,10 @@ package com.example.ftiga;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 
 public class DeskIdeActivity extends AppCompatActivity {
 
@@ -29,5 +31,19 @@ public class DeskIdeActivity extends AppCompatActivity {
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
+
+        //Tombol back
+        Toolbar tb = (Toolbar) findViewById(R.id.detail_ide);
+        setSupportActionBar(tb);
+
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+    }
+
+    //Tombol back
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return false;
     }
 }

@@ -24,7 +24,8 @@
                 android:id="@+id/layout_text2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/gambar_ide">
+                android:layout_below="@id/gambar_ide"
+                android:padding="5dp">
 
                 <TextView
                     android:id="@+id/text_view1"
@@ -66,8 +67,7 @@
                     android:layout_height="50dp"
                     android:layout_below="@+id/text_view3"
                     android:layout_marginTop="100dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
+                    android:gravity="center"
                     android:text="Buat Ide"
                     android:textColor="#fff"
                     android:background="@color/merah"

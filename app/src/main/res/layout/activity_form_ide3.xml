@@ -8,6 +8,16 @@
     tools:context=".form_ide3"
     android:orientation="vertical">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_form_ide3"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/merah"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:title="Form Pengajuan Donasi">
+
+    </android.support.v7.widget.Toolbar>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,21 +37,21 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#CC363A">
-
-                        <TextView
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Paket - 1"
-                            android:textAlignment="center"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="30dp"
-                            android:textStyle="bold"
-                            />
-                    </LinearLayout>
+                            android:background="#CC363A">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Paket - 1"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="30dp"
+                                android:textStyle="bold"
+                                />
+                        </LinearLayout>
 
                     <LinearLayout
                         android:orientation="vertical"
@@ -65,13 +75,13 @@
                                 android:textStyle="bold"
                                 />
 
-                            <TextView
-                                android:id="@+id/tv_np1"
+                            <EditText
+                                android:id="@+id/np1"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.5"
-                                android:text="Premium"
                                 android:textSize="20dp"
+                                android:background="@drawable/edttext_square"
                                 android:textColor="@color/colorBlack"
                                 android:paddingLeft="5dp"
                                 />
@@ -94,13 +104,13 @@
                                 android:textStyle="bold"
                                 />
 
-                            <TextView
-                                android:id="@+id/tv_jml1"
+                            <EditText
+                                android:id="@+id/jml1"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.5"
-                                android:text="Rp150.000"
                                 android:textSize="20dp"
+                                android:background="@drawable/edttext_square"
                                 android:textColor="@color/colorBlack"
                                 android:paddingLeft="5dp"
                                 />
@@ -123,13 +133,13 @@
                                 android:textStyle="bold"
                                 />
 
-                            <TextView
-                                android:id="@+id/tv_fbck1"
+                            <EditText
+                                android:id="@+id/fbck1"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.5"
-                                android:text="Kaos"
                                 android:textSize="20dp"
+                                android:background="@drawable/edttext_square"
                                 android:textColor="@color/colorBlack"
                                 android:paddingLeft="5dp"
                                 />
@@ -187,13 +197,13 @@
                                 android:textStyle="bold"
                                 />
 
-                            <TextView
-                                android:id="@+id/tv_np2"
+                            <EditText
+                                android:id="@+id/np2"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.5"
-                                android:text="Gold"
                                 android:textSize="20dp"
+                                android:background="@drawable/edttext_square"
                                 android:textColor="@color/colorBlack"
                                 android:paddingLeft="5dp"
                                 />
@@ -216,13 +226,13 @@
                                 android:textStyle="bold"
                                 />
 
-                            <TextView
-                                android:id="@+id/tv_jml2"
+                            <EditText
+                                android:id="@+id/jml2"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.5"
-                                android:text="Rp100.000"
                                 android:textSize="20dp"
+                                android:background="@drawable/edttext_square"
                                 android:textColor="@color/colorBlack"
                                 android:paddingLeft="5dp"
                                 />
@@ -245,13 +255,13 @@
                                 android:textStyle="bold"
                                 />
 
-                            <TextView
-                                android:id="@+id/tv_fbck2"
+                            <EditText
+                                android:id="@+id/fbck2"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.5"
-                                android:text="Poster"
                                 android:textSize="20dp"
+                                android:background="@drawable/edttext_square"
                                 android:textColor="@color/colorBlack"
                                 android:paddingLeft="5dp"
                                 />
@@ -309,13 +319,13 @@
                                 android:textStyle="bold"
                                 />
 
-                            <TextView
-                                android:id="@+id/tv_np3"
+                            <EditText
+                                android:id="@+id/np3"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.5"
-                                android:text="Silver"
                                 android:textSize="20dp"
+                                android:background="@drawable/edttext_square"
                                 android:textColor="@color/colorBlack"
                                 android:paddingLeft="5dp"
                                 />
@@ -338,13 +348,13 @@
                                 android:textStyle="bold"
                                 />
 
-                            <TextView
-                                android:id="@+id/tv_jml3"
+                            <EditText
+                                android:id="@+id/jml3"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.5"
-                                android:text="Rp50.000"
                                 android:textSize="20dp"
+                                android:background="@drawable/edttext_square"
                                 android:textColor="@color/colorBlack"
                                 android:paddingLeft="5dp"
                                 />
@@ -367,13 +377,13 @@
                                 android:textStyle="bold"
                                 />
 
-                            <TextView
-                                android:id="@+id/tv_fbck3"
+                            <EditText
+                                android:id="@+id/fbck3"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.5"
-                                android:text="Stiker"
                                 android:textSize="20dp"
+                                android:background="@drawable/edttext_square"
                                 android:textColor="@color/colorBlack"
                                 android:paddingLeft="5dp"
                                 />
@@ -382,6 +392,18 @@
                     </LinearLayout>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+
+            <Button
+                android:id="@+id/btnnext4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgView"
+                android:layout_gravity="right"
+                android:layout_marginTop="30dp"
+                android:text="Next"
+                android:textColor="#fff"
+                android:background="@color/merah"
+                android:layout_marginBottom="30dp"/>
 
         </LinearLayout>
     </ScrollView>
