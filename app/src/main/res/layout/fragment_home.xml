@@ -41,7 +41,16 @@
                 app:slideInterval="3000"
                 app:strokeColor="#FF777777"
                 app:strokeWidth="1dp"
-                android:layout_marginBottom="13dp"/>
+                android:layout_marginBottom="13dp"
+                android:padding="5dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mari Wujudkan Ide!"
+                android:padding="5dp"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
 
             <GridView
                 android:id="@+id/menu_drawer_oleh_grid"
@@ -49,6 +58,7 @@
                 android:layout_height="fill_parent"
                 android:numColumns="1"
                 android:padding="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_below="@+id/carouselView"/>
 
             <ProgressBar

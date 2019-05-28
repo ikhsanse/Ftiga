@@ -157,7 +157,6 @@ public class HomeFragment extends Fragment {
 
                         ide.setId(JsonObj.getString("id_ide"));
                         ide.setJudul_ide(JsonObj.getString("judul"));
-                        ide.setDeskripsi(JsonObj.getString("deskripsi"));
 
                         arrayItembaru.add(ide);
 
@@ -176,9 +175,6 @@ public class HomeFragment extends Fragment {
 
                     alljudul.add(semuaItemobj.getJudul_ide());
                     arrayjudul = alljudul.toArray(arrayjudul);
-
-                    alldesk.add(semuaItemobj.getDeskripsi());
-                    arraydeskripsi = alldesk.toArray(arraydeskripsi);
 
 
                 }

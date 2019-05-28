@@ -22,11 +22,4 @@ public class ItemIde {
         this.judul_ide = judul_ide;
     }
 
-    public String getDeskripsi() {
-        return deskripsi;
-    }
-
-    public void setDeskripsi(String deskripsi) {
-        this.deskripsi = deskripsi;
-    }
 }

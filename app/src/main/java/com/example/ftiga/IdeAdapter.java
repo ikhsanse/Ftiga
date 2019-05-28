@@ -43,7 +43,6 @@ public class IdeAdapter extends ArrayAdapter<ItemIde>{
         semuaobj = itembaru.get(position);
 
         holder.judul_ide = (TextView) view.findViewById(R.id.judul_ide);
-        holder.deskripsi = (TextView) view.findViewById(R.id.desk_ide);
 
 
 //        if(semuaobj.getGambar().toString().equals("")){
@@ -57,13 +56,11 @@ public class IdeAdapter extends ArrayAdapter<ItemIde>{
 //        }
 
         holder.judul_ide.setText(semuaobj.getJudul_ide().toString());
-        holder.deskripsi.setText(semuaobj.getDeskripsi().toString());
 
         return view;
     }
 
     public class ViewHolder{
         public TextView judul_ide;
-        public TextView deskripsi;
     }
 }
