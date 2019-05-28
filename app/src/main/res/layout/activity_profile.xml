@@ -1,13 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!--<TextView-->
+    <!--android:id="@+id/textProfile"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Home Fragment"-->
+    <!--android:textSize="30sp"-->
+    <!--android:layout_centerInParent="true"/>-->
+    <!--<TextView-->
+    <!--android:id="@+id/textpopUp"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="PopUp"-->
+    <!--android:textSize="30sp"-->
+    <!--android:layout_alignParentBottom="true"/>-->
+    <RelativeLayout
+        android:id="@+id/parent_profile"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_margin="30dp"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/logo_ex"
+            android:id="@+id/imv_logo"/>
+
+        <LinearLayout
+            android:id="@+id/linear_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toRightOf="@+id/imv_logo"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp">
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Muhammad Adhi Herlianto"
+                android:textSize="15sp"
+                android:layout_marginBottom="15dp"/>
+            <TextView
+                android:id="@+id/tv_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lihat Profile"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hallo"/>
-</RelativeLayout>
+        app:tabGravity="fill"
+        app:tabMode="fixed"
+        android:id="@+id/tablayoutid"
+        app:tabTextColor="@color/colorWhite"
+        app:tabIndicatorColor="@color/colorWhite"
+        android:background="@color/merah"/>
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewpager_id"/>
+
+
+
+
+
+</LinearLayout>

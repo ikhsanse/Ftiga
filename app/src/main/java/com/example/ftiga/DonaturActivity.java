@@ -29,6 +29,7 @@ public class DonaturActivity extends RecyclerView.Adapter<DonaturActivity.ViewHo
         }
     }
 
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // membuat view baru
@@ -52,4 +53,5 @@ public class DonaturActivity extends RecyclerView.Adapter<DonaturActivity.ViewHo
         // menghitung ukuran dataset / jumlah data yang ditampilkan di RecyclerView
         return rvData.size();
     }
+
 }

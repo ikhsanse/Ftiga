@@ -41,9 +41,7 @@ public class LoginActivity extends AppCompatActivity {
                 us = edtEmail.getText().toString();
                 ps = edtPassword.getText().toString();
                 if(JsonUtils.isNetworkAvailable(LoginActivity.this)){
-//                    new Tampil().execute("http://192.168.0.14/test/login.php?email="+us+"&password="+ps);
-//                    new Tampil().execute("http://192.168.0.14/api/user/login?email="+us+"&password="+ps);
-                    new Tampil().execute("http://192.168.0.14:8000/api/user/login?email="+us+"&password"+ps);
+                    new Tampil().execute("http://192.168.1.9/test/login.php?email="+us+"&password="+ps);
                 }else{
                     new AlertDialog.Builder(LoginActivity.this)
                             .setTitle("Failed")

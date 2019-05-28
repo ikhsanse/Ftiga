@@ -13,6 +13,7 @@ import android.widget.Button;
 public class IdeFragment extends Fragment implements View.OnClickListener{
 
     Button btnNext;
+
     private View mview;
 
     @Nullable
