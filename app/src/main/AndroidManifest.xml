@@ -23,9 +23,10 @@
         <activity android:name=".FormIde2" />
         <activity android:name=".form_ide3" />
         <activity android:name=".form_ide4" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".FragmentActivity">
+        <activity android:name=".FragmentActivity" />
+        <activity android:name=".DonasiActivity" />
+        <activity android:name=".Activity_UplodeBukti" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,10 +1,10 @@
 package com.example.ftiga;
 
-public class ModelPaket {
+public class ItemPaket {
     private int icon;
     private String paket,harga,feedback;
 
-    public ModelPaket(int icon, String paket, String harga, String feedback) {
+    public ItemPaket(int icon, String paket, String harga, String feedback) {
         this.icon = icon;
         this.paket = paket;
         this.harga = harga;

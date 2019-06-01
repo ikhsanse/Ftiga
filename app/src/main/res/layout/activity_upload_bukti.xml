@@ -16,7 +16,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:padding="10dp">
         <!--<TextView-->
             <!--android:id="@+id/titlePemb"-->
             <!--android:layout_width="match_parent"-->
@@ -45,19 +46,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+        android:padding="10dp">
         <Button
             android:id="@+id/btnPilih"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Pilih Gambar"
-            android:background="@color/colorPrimary"
+            android:background="@color/merah"
             android:textColor="@color/colorWhite"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:padding="10dp">
         <Button
             android:id="@+id/btnUploadBkt"
             android:layout_width="match_parent"

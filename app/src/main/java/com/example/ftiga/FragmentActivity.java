@@ -9,7 +9,7 @@ import android.view.MenuItem;
 
 public class FragmentActivity extends AppCompatActivity {
 
-    String id_user;
+//    String id_user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +21,7 @@ public class FragmentActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new HomeFragment()).commit();
 
-        id_user = getIntent().getExtras().getString("id");
+//        id_user = getIntent().getExtras().getString("id");
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =

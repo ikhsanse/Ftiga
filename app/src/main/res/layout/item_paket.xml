@@ -5,12 +5,14 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-    android:layout_marginTop="40dp">
+    android:layout_marginTop="40dp"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"
+        android:padding="5dp"
         >
 
         <ImageView
@@ -58,6 +60,7 @@
             android:layout_height="wrap_content"
             >
             <Button
+                android:id="@+id/btn_pilih"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="PILIH"
@@ -66,7 +69,7 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
 
-                android:background="@color/colorYellow"/>
+                android:background="@color/merah"/>
         </RelativeLayout>
     </LinearLayout>
 

@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class PaketAdapter extends RecyclerView.Adapter<PaketAdapter.ViewHolder> {
 
     private Context mContext;
-    private ArrayList<ModelPaket> mlist;
-    PaketAdapter(Context context, ArrayList<ModelPaket> list){
+    private ArrayList<ItemPaket> mlist;
+    PaketAdapter(Context context, ArrayList<ItemPaket> list){
         mContext = context;
         mlist = list;
     }
@@ -32,7 +32,7 @@ public class PaketAdapter extends RecyclerView.Adapter<PaketAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        ModelPaket paket_item = mlist.get(i);
+        ItemPaket paket_item = mlist.get(i);
 
         ImageView icon = viewHolder.item_icon;
         TextView paket,harga,feedback;
