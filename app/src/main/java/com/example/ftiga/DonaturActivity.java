@@ -33,7 +33,7 @@ public class DonaturActivity extends RecyclerView.Adapter<DonaturActivity.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // membuat view baru
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_donatur, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_donatur, parent, false);
         // mengeset ukuran view, margin, padding, dan parameter layout lainnya
         ViewHolder vh = new ViewHolder(v);
         return vh;

@@ -9,13 +9,13 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ProgressBar;
-import android.widget.SearchView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,16 +30,11 @@ public class DiscoverFragment extends Fragment implements View.OnClickListener {
     List<ItemIde> arrayItembaru;
     IdeAdapter objAdapter;
     private ItemIde semuaItemobj;
-    ArrayList<String> allid, alljudul, alldesk;
-    String[] arrayid, arrayjudul, arraydeskripsi;
+    ArrayList<String> allid, alljudul, alldana, allnama;
+    String[] arrayid, arrayjudul,  arraydana, arraynama;
     ProgressBar progress;
-    EditText by;
 
-    String data;
-
-    int textlength = 0;
-
-    SearchView search;
+    String data, id_user;
 
     View rootView;
 
@@ -48,6 +43,8 @@ public class DiscoverFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
       rootView = inflater.inflate(R.layout.fragment_discover, container, false);
 
+        id_user = getActivity().getIntent().getExtras().getString("id");
+
         progress = (ProgressBar)rootView.findViewById(R.id.menu_drawer_oleh_progbar);
 
         listData = (GridView)rootView.findViewById(R.id.menu_drawer_oleh_grid);
@@ -55,14 +52,16 @@ public class DiscoverFragment extends Fragment implements View.OnClickListener {
 
         allid = new ArrayList<String>();
         alljudul = new ArrayList<String>();
-        alldesk = new ArrayList<String>();
+        alldana = new ArrayList<String>();
+        allnama = new ArrayList<String>();
 
         arrayid = new String[allid.size()];
         arrayjudul = new String[alljudul.size()];
-        arraydeskripsi = new String[alldesk.size()];
+        arraydana = new String[alldana.size()];
+        arraynama = new String[allnama.size()];
 
         if(JsonUtils.isNetworkAvailable(getActivity())){
-            new DiscoverFragment.Tampil().execute("http://192.168.43.23/test/get_ide.php");
+            new Tampil().execute("http://192.168.0.20/test/get_ide.php");
         }else{
             new AlertDialog.Builder(getActivity())
                     .setTitle("Failed")
@@ -76,8 +75,6 @@ public class DiscoverFragment extends Fragment implements View.OnClickListener {
                     }).show();
         }
 
-        searchdata();
-
         listData.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -86,10 +83,21 @@ public class DiscoverFragment extends Fragment implements View.OnClickListener {
                 /*String ide = semuaItemobj.getId();
                 String idtoko = semuaItemobj.getIdtoko();*/
 
+                String id_ide = semuaItemobj.getId();
+                String judul_ide = semuaItemobj.getJudul_ide();
+                String nama = semuaItemobj.getNama();
+                String dana = semuaItemobj.getDana();
+                String deskripsi = semuaItemobj.getDeskripsi();
+
                 Intent a = new Intent(getActivity() ,DeskIdeActivity.class);
-               /* a.putExtra("idtoko",idtoko);
-                a.putExtra("idproduk",ide);
-                a.putExtra("iduser",data);*/
+                /*a.putExtra("idtoko",idtoko);
+                a.putExtra("idproduk",ide);*/
+                a.putExtra("id",id_user);
+                a.putExtra("id_ide",id_ide);
+                a.putExtra("judul_ide",judul_ide);
+                a.putExtra("nama",nama);
+                a.putExtra("dana",dana);
+                a.putExtra("deskripsi",deskripsi);
                 startActivity(a);
             }
         });
@@ -109,47 +117,16 @@ public class DiscoverFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    public void searchdata() {
-        search = (SearchView) rootView.findViewById(R.id.cariide);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);//Make sure you have this line of code.
+    }
 
-        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-
-            @Override
-            public boolean onQueryTextChange(String text) {
-                // TODO Auto-generated method stub
-                textlength = text.length();
-                arrayItembaru.clear();
-
-                String sc = by.getText().toString();
-
-                if (sc.equals("Judul Ide")) {
-
-                    for (int i = 0; i < arrayjudul.length; i++) {
-                        if (textlength <= arrayjudul[i].length()) {
-                            if (text.toString().equalsIgnoreCase((String) arrayjudul[i].subSequence(0, textlength))) {
-                                ItemIde data = new ItemIde();
-
-                                data.setId(arrayid[i]);
-                                data.setJudul_ide(arrayjudul[i]);
-
-                                arrayItembaru.add(data);
-                            }
-                        }
-                    }
-
-                    setAllAdapter();
-                }
-
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                // TODO Auto-generated method stub
-                return false;
-            }
-        });
-
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        // TODO Add your menu entries here
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     public class Tampil extends AsyncTask<String, Void, String> {
@@ -200,6 +177,9 @@ public class DiscoverFragment extends Fragment implements View.OnClickListener {
 
                         ide.setId(JsonObj.getString("id_ide"));
                         ide.setJudul_ide(JsonObj.getString("judul"));
+                        ide.setDana(JsonObj.getString("dana"));
+                        ide.setNama(JsonObj.getString("nama"));
+                        ide.setDeskripsi(JsonObj.getString("deskripsi"));
 
                         arrayItembaru.add(ide);
 
@@ -219,7 +199,11 @@ public class DiscoverFragment extends Fragment implements View.OnClickListener {
                     alljudul.add(semuaItemobj.getJudul_ide());
                     arrayjudul = alljudul.toArray(arrayjudul);
 
+                    alldana.add(semuaItemobj.getDana());
+                    arraydana = alldana.toArray(arraydana);
 
+                    allnama.add(semuaItemobj.getNama());
+                    arraynama = allnama.toArray(arraynama);
                 }
 
                 setAllAdapter();

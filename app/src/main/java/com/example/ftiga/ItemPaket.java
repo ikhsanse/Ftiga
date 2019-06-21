@@ -2,13 +2,22 @@ package com.example.ftiga;
 
 public class ItemPaket {
     private int icon;
-    private String paket,harga,feedback;
+    private String id,paket,harga,feedback,id_ide;
 
-    public ItemPaket(int icon, String paket, String harga, String feedback) {
+    public ItemPaket() {
+        this.id = id;
         this.icon = icon;
         this.paket = paket;
         this.harga = harga;
         this.feedback = feedback;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public int getIcon() {
@@ -41,5 +50,13 @@ public class ItemPaket {
 
     public void setFeedback(String feedback) {
         this.feedback = feedback;
+    }
+
+    public String getId_ide() {
+        return id_ide;
+    }
+
+    public void setId_ide(String id_ide) {
+        this.id_ide = id_ide;
     }
 }

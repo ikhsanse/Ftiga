@@ -40,14 +40,15 @@ public class HomeFragment extends Fragment {
     List<ItemIde> arrayItembaru;
     IdeAdapter objAdapter;
     private ItemIde semuaItemobj;
-    ArrayList<String> allid, alljudul;
-    String[] arrayid, arrayjudul, arraydeskripsi;
+    ArrayList<String> allid, alljudul, alldana, allnama;
+    String[] arrayid, arrayjudul, arraydana, arraynama;
     ProgressBar progress;
     EditText by;
 
-    String data;
 
     int textlength = 0;
+
+    String id_user;
 
 //    //GridView
 //    GridView mainGrid;
@@ -61,6 +62,8 @@ public class HomeFragment extends Fragment {
         carouselView.setPageCount(sampleImages.length);
         carouselView.setImageListener(imageListener);
 
+        id_user = getActivity().getIntent().getExtras().getString("id");
+
         Toolbar tb = (Toolbar) rootView.findViewById(R.id.tb_home);
         ((AppCompatActivity)getActivity()).setSupportActionBar(tb);
 
@@ -71,13 +74,17 @@ public class HomeFragment extends Fragment {
 
         allid = new ArrayList<String>();
         alljudul = new ArrayList<String>();
+        alldana = new ArrayList<String>();
+        allnama = new ArrayList<String>();
 
         //menghitung jumlah data
         arrayid = new String[allid.size()];
         arrayjudul = new String[alljudul.size()];
+        arraydana = new String[alldana.size()];
+        arraynama = new String[allnama.size()];
 
         if(JsonUtils.isNetworkAvailable(getActivity())){
-            new Tampil().execute("http://192.168.43.23/test/get_ide.php");
+            new Tampil().execute("http://192.168.0.20/test/get_ide.php");
         }else{
             new AlertDialog.Builder(getActivity())
                     .setTitle("Failed")
@@ -90,6 +97,7 @@ public class HomeFragment extends Fragment {
                         }
                     }).show();
         }
+
         listData.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -98,10 +106,21 @@ public class HomeFragment extends Fragment {
                 /*String ide = semuaItemobj.getId();
                 String idtoko = semuaItemobj.getIdtoko();*/
 
+                String id_ide = semuaItemobj.getId();
+                String judul_ide = semuaItemobj.getJudul_ide();
+                String nama = semuaItemobj.getNama();
+                String dana = semuaItemobj.getDana();
+                String deskripsi = semuaItemobj.getDeskripsi();
+
                 Intent a = new Intent(getActivity() ,DeskIdeActivity.class);
-               /* a.putExtra("idtoko",idtoko);
-                a.putExtra("idproduk",ide);
-                a.putExtra("iduser",data);*/
+                /*a.putExtra("idtoko",idtoko);
+                a.putExtra("idproduk",ide);*/
+                a.putExtra("id",id_user);
+                a.putExtra("id_ide",id_ide);
+                a.putExtra("judul_ide",judul_ide);
+                a.putExtra("nama",nama);
+                a.putExtra("dana",dana);
+                a.putExtra("deskripsi",deskripsi);
                 startActivity(a);
             }
         });
@@ -176,6 +195,9 @@ public class HomeFragment extends Fragment {
 
                         ide.setId(JsonObj.getString("id_ide"));
                         ide.setJudul_ide(JsonObj.getString("judul"));
+                        ide.setDana(JsonObj.getString("dana"));
+                        ide.setNama(JsonObj.getString("nama"));
+                        ide.setDeskripsi(JsonObj.getString("deskripsi"));
 
                         arrayItembaru.add(ide);
 
@@ -194,6 +216,12 @@ public class HomeFragment extends Fragment {
 
                     alljudul.add(semuaItemobj.getJudul_ide());
                     arrayjudul = alljudul.toArray(arrayjudul);
+
+                    alldana.add(semuaItemobj.getDana());
+                    arraydana = alldana.toArray(arraydana);
+
+                    allnama.add(semuaItemobj.getNama());
+                    arraynama = allnama.toArray(arraynama);
 
                 }
 

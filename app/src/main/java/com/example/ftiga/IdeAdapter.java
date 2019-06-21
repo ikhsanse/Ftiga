@@ -43,7 +43,8 @@ public class IdeAdapter extends ArrayAdapter<ItemIde>{
         semuaobj = itembaru.get(position);
 
         holder.judul_ide = (TextView) view.findViewById(R.id.judul_ide);
-
+        holder.dana = (TextView) view.findViewById(R.id.txt_dana);
+        holder.nama = (TextView) view.findViewById(R.id.tv_namaOrg);
 
 //        if(semuaobj.getGambar().toString().equals("")){
 //            holder.gmb.setImageResource(R.drawable.default_produk_putih);
@@ -56,11 +57,15 @@ public class IdeAdapter extends ArrayAdapter<ItemIde>{
 //        }
 
         holder.judul_ide.setText(semuaobj.getJudul_ide().toString());
+        holder.dana.setText(semuaobj.getDana().toString());
+        holder.nama.setText(semuaobj.getNama().toString());
 
         return view;
     }
 
     public class ViewHolder{
         public TextView judul_ide;
+        public TextView dana;
+        public TextView nama;
     }
 }

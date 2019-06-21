@@ -67,9 +67,9 @@ public class FormIde1 extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
                 month = month + 1;
-                Log.d(TAG, "onDateSet: mm/dd/yyyy" + month + "/" + day + "/" + year);
+                Log.d(TAG, "onDateSet: dd/mm/yyyy" + day + "/" + month + "/" + year);
 
-                String date = month + "/" + day + "/" + year;
+                String date = day + "/" + month + "/" + year;
                 mDisplayDate.setText(date);
             }
         };

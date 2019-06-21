@@ -6,9 +6,15 @@
     android:background="@android:color/holo_orange_light">
 
     <TextView
+        android:id="@+id/txt_nyoba"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Chat Fragment"
         android:textSize="30sp"
         android:layout_centerInParent="true"/>
+
+    <EditText
+        android:id="@+id/edt_nyoba"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

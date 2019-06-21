@@ -9,12 +9,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class FragmentDeskripsiIde extends Fragment implements View.OnClickListener {
 
     private View view;
 
     Button btn_donasi;
+
+    TextView jdl, nm, dn, desk;
+
+    String id_user, id_ide, judul_ide, nama, dana, deskripsi;
 
     public FragmentDeskripsiIde() {
 
@@ -25,6 +30,23 @@ public class FragmentDeskripsiIde extends Fragment implements View.OnClickListen
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.activity_deskripsi_ide, container,false);
+
+        id_user = getActivity().getIntent().getExtras().getString("id");
+        id_ide = getActivity().getIntent().getExtras().getString("id_ide");
+        judul_ide = getActivity().getIntent().getExtras().getString("judul_ide");
+        nama = getActivity().getIntent().getExtras().getString("nama");
+        dana = getActivity().getIntent().getExtras().getString("dana");
+        deskripsi = getActivity().getIntent().getExtras().getString("deskripsi");
+
+        jdl = view.findViewById(R.id.jdl_ide);
+        nm = view.findViewById(R.id.nama_user);
+        dn = view.findViewById(R.id.jmlh_terkumpul);
+        desk = view.findViewById(R.id.deskripsi);
+
+        jdl.setText(judul_ide);
+        nm.setText(nama);
+        dn.setText(dana);
+        desk.setText(deskripsi);
 
         btn_donasi = (Button) view.findViewById(R.id.btn_donasiSkrg);
         btn_donasi.setOnClickListener(this);
@@ -43,4 +65,5 @@ public class FragmentDeskripsiIde extends Fragment implements View.OnClickListen
                 break;
         }
     }
+
 }
