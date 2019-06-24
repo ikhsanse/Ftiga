@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
                 us = edtEmail.getText().toString();
                 ps = edtPassword.getText().toString();
                 if(JsonUtils.isNetworkAvailable(LoginActivity.this)){
-                    new Tampil().execute("http://192.168.0.20/test/login.php?email="+us+"&password="+ps);
+                    new Tampil().execute("http://192.168.100.13/test/login.php?email="+us+"&password="+ps);
                 }else{
                     new AlertDialog.Builder(LoginActivity.this)
                             .setTitle("Failed")
@@ -132,6 +132,7 @@ public class LoginActivity extends AppCompatActivity {
 
 //                        final String roll = JsonObj.getString("role");
                         final String id_user = JsonObj.getString("id_user");
+                        final String nama = JsonObj.getString("nama");
 
 //                        if (roll.equals("edtEmail")){
 //                            new AlertDialog.Builder(LoginActivity.this)
@@ -158,6 +159,7 @@ public class LoginActivity extends AppCompatActivity {
                                             finish();
                                             Intent a = new Intent(LoginActivity.this, FragmentActivity.class);
                                             a.putExtra("id",id_user);
+                                            a.putExtra("nama",nama);
                                             startActivity(a);
                                         }
                                     }).show();

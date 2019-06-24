@@ -17,17 +17,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PaketActivity extends AppCompatActivity{
 
     GridView listData;
-    ArrayList<ItemPaket> paketList;
+    List<ItemPaket> paketList;
     PaketAdapter objAdapter;
     private ItemPaket semuaItemobj;
     ArrayList<String> allid, allpaket, allharga, allfeedback;
     String[] arrayid, arraypaket, arrayharga, arrayfeedback;
 
-    String data;
+    String id_user, id_ide;
 
     @Override
 
@@ -35,10 +36,11 @@ public class PaketActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paket);
 
-        data = getIntent().getExtras().getString("id");
+        id_ide = getIntent().getExtras().getString("id_ide");
+        id_user = getIntent().getExtras().getString("id_user");
 
         listData = findViewById(R.id.paket_rv);
-        paketList= new ArrayList<>();
+        paketList= new ArrayList<ItemPaket>();
 
         allid = new ArrayList<String>();
         allpaket = new ArrayList<String>();
@@ -52,7 +54,7 @@ public class PaketActivity extends AppCompatActivity{
         arrayfeedback = new String[allfeedback.size()];
 
         if(JsonUtils.isNetworkAvailable(PaketActivity.this)){
-            new Tampil().execute("http://192.168.0.20/test/get_paket.php");
+            new Tampil().execute("http://192.168.100.13/test/get_paket.php?id_ide="+id_ide);
         }else{
             new AlertDialog.Builder(PaketActivity.this)
                     .setTitle("Failed")
@@ -87,14 +89,17 @@ public class PaketActivity extends AppCompatActivity{
 
                 String id_paket = semuaItemobj.getId();
                 String id_ide = semuaItemobj.getId_ide();
+                String jml_donasi = semuaItemobj.getHarga();
 
                 Intent a = new Intent(PaketActivity.this ,DonasiActivity.class);
                 a.putExtra("id_ide",id_ide);
                 a.putExtra("id_paket",id_paket);
-                a.putExtra("iduser",data);
+                a.putExtra("id_user",id_user);
+                a.putExtra("jumlah_donasi", jml_donasi);
                 startActivity(a);
             }
         });
+
         //Tombol back
         Toolbar tb = (Toolbar) findViewById(R.id.tb_plhPaket);
         setSupportActionBar(tb);
@@ -149,7 +154,6 @@ public class PaketActivity extends AppCompatActivity{
 
                         ItemPaket paket = new ItemPaket();
 
-                        paket.setId(JsonObj.getString("id_ide"));
                         paket.setPaket(JsonObj.getString("nama"));
                         paket.setHarga(JsonObj.getString("harga"));
                         paket.setFeedback(JsonObj.getString("feedback"));

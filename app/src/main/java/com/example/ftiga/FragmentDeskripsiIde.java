@@ -59,6 +59,8 @@ public class FragmentDeskripsiIde extends Fragment implements View.OnClickListen
         switch (v.getId()){
             case R.id.btn_donasiSkrg:
                 Intent intent = new Intent(getActivity(), PaketActivity.class);
+                intent.putExtra("id",id_user);
+                intent.putExtra("id_ide",id_ide);
                 getActivity().startActivity(intent);
                 break;
             default:

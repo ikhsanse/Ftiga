@@ -70,6 +70,7 @@ public class HomeFragment extends Fragment {
         progress = (ProgressBar)rootView.findViewById(R.id.menu_drawer_oleh_progbar);
 
         listData = (GridView)rootView.findViewById(R.id.menu_drawer_oleh_grid);
+
         arrayItembaru = new ArrayList<ItemIde>();
 
         allid = new ArrayList<String>();
@@ -84,7 +85,7 @@ public class HomeFragment extends Fragment {
         arraynama = new String[allnama.size()];
 
         if(JsonUtils.isNetworkAvailable(getActivity())){
-            new Tampil().execute("http://192.168.0.20/test/get_ide.php");
+            new Tampil().execute("http://192.168.100.13/test/get_ide.php");
         }else{
             new AlertDialog.Builder(getActivity())
                     .setTitle("Failed")
@@ -113,8 +114,6 @@ public class HomeFragment extends Fragment {
                 String deskripsi = semuaItemobj.getDeskripsi();
 
                 Intent a = new Intent(getActivity() ,DeskIdeActivity.class);
-                /*a.putExtra("idtoko",idtoko);
-                a.putExtra("idproduk",ide);*/
                 a.putExtra("id",id_user);
                 a.putExtra("id_ide",id_ide);
                 a.putExtra("judul_ide",judul_ide);

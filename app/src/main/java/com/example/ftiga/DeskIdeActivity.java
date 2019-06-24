@@ -86,8 +86,6 @@ public class DeskIdeActivity extends AppCompatActivity {
                 f = new FragmentDonaturIde();
 
                 Bundle data = new Bundle();
-                data.putString("id",id_user);
-                data.putString("id_ide",id_ide);
                 f.setArguments(data);
             }
             if (position == 3) {

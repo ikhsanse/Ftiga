@@ -13,17 +13,14 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/merah"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:title="Pilih Paket"></android.support.v7.widget.Toolbar>
+        app:title="Pilih Paket" />
 
 
-
-
-        <GridView
-            android:id="@+id/paket_rv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            tools:itemCount="3"></GridView>
+    <GridView
+        android:id="@+id/paket_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true" />
 
 
 </LinearLayout>

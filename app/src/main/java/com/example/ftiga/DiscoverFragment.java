@@ -61,7 +61,7 @@ public class DiscoverFragment extends Fragment implements View.OnClickListener {
         arraynama = new String[allnama.size()];
 
         if(JsonUtils.isNetworkAvailable(getActivity())){
-            new Tampil().execute("http://192.168.0.20/test/get_ide.php");
+            new Tampil().execute("http://192.168.100.13/test/get_ide.php");
         }else{
             new AlertDialog.Builder(getActivity())
                     .setTitle("Failed")

@@ -1,6 +1,7 @@
 package com.example.ftiga;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,8 +9,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
@@ -22,44 +21,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentDonaturIde extends Fragment {
+
     GridView listData;
-    List<ItemDonatur> arrayItembaru;
+    List<ItemDonatur> arrayItemBaru;
     DonaturAdapter objAdapter;
-    private ItemDonatur semuaItemobj;
-    ArrayList<String> allid, alldana, allnama;
-    String[] arrayid,  arraydana, arraynama;
+    private ItemDonatur semuaItemObj;
+    ArrayList<String> allnama, alldana;
+    String [] arraynama, arraydana;
 
-    String id_user,id_ide;
-
-//    public FragmentDonaturIde() {
-//
-//    }
+    String id_ide;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.activity_donatur_ide, container, false);
-        id_user = getActivity().getIntent().getExtras().getString("id");
-        id_ide = getActivity().getIntent().getExtras().getString("id_ide");
 
-//        Toolbar tb = (Toolbar) rootView.findViewById(R.id.tb_home);
-//        ((AppCompatActivity)getActivity()).setSupportActionBar(tb);
-//
-        listData = (GridView)rootView.findViewById(R.id.rv_donatur);
-        arrayItembaru = new ArrayList<ItemDonatur>();
+        listData = rootView.findViewById(R.id.gv_donatur);
 
-        allid = new ArrayList<String>();
-        alldana = new ArrayList<String>();
+        String id_ide = getActivity().getIntent().getExtras().getString("id_ide");
+
+        arrayItemBaru = new ArrayList<ItemDonatur>();
+
         allnama = new ArrayList<String>();
+        alldana = new ArrayList<String>();
 
-        //menghitung jumlah data
-        arrayid = new String[allid.size()];
-        arraydana = new String[alldana.size()];
         arraynama = new String[allnama.size()];
+        arraydana = new  String[alldana.size()];
 
         if(JsonUtils.isNetworkAvailable(getActivity())){
-            new Tampil().execute("http://192.168.0.20/test/get_donatur_ide.php?id_ide="+id_ide);
+            new Tampil().execute("http://192.168.100.13/test/get_donatur_ide.php?id_ide="+id_ide);
         }else{
             new AlertDialog.Builder(getActivity())
                     .setTitle("Failed")
@@ -73,63 +64,37 @@ public class FragmentDonaturIde extends Fragment {
                     }).show();
         }
 
-//        listData.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                semuaItemobj = arrayItembaru.get(position);
-//
-//                /*String ide = semuaItemobj.getId();
-//                String idtoko = semuaItemobj.getIdtoko();*/
-//
-//                String id_ide = semuaItemobj.getId();
-//                String nama = semuaItemobj.getNama_donatur();
-//                String dana = semuaItemobj.getJml_donasi();
-//
-//                Intent a = new Intent(getActivity() ,DeskIdeActivity.class);
-//                /*a.putExtra("idtoko",idtoko);
-//                a.putExtra("idproduk",ide);*/
-//                a.putExtra("id",id_user);
-//                a.putExtra("id_ide",id_ide);
-//                a.putExtra("nama",nama);
-//                a.putExtra("dana",dana);
-//                startActivity(a);
-//            }
-//        });
-
         return rootView;
     }
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);//Make sure you have this line of code.
-    }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        // TODO Add your menu entries here
-        super.onCreateOptionsMenu(menu, inflater);
-    }
+    public class Tampil extends AsyncTask<String, Void, String>{
 
-
-    public class Tampil extends AsyncTask<String, Void, String> {
-
+        ProgressDialog pDialog;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+
+            pDialog = new ProgressDialog(getActivity());
+            pDialog.setMessage("Harap Tunggu...");
+            pDialog.setCancelable(false);
+            pDialog.show();
         }
 
         @Override
-        protected String doInBackground(String... params) {
-            return JsonUtils.getJSONString(params[0]);
+        protected String doInBackground(String... strings) {
+            return JsonUtils.getJSONString(strings[0]);
         }
 
         @Override
-        protected void onPostExecute(String hasil) {
-            super.onPostExecute(hasil);
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
 
+            if (null != pDialog && pDialog.isShowing()) {
+                pDialog.dismiss();
+            }
 
-            if(null == hasil || hasil.length() == 0){
+            if(s == null || s.length() == 0){
                 new AlertDialog.Builder(getActivity())
                         .setTitle("Failed")
                         .setMessage("Harap Periksa Koneksi!")
@@ -140,52 +105,47 @@ public class FragmentDonaturIde extends Fragment {
                                 // Whatever...
                             }
                         }).show();
-            }else{
+
+            }else {
                 try {
-                    JSONObject JsonUtama =  new JSONObject(hasil);
-                    JSONArray jsonArray = JsonUtama.getJSONArray("data");
-                    JSONObject JsonObj = null;
-                    for(int i = 0;i < jsonArray.length();i++){
 
-                        JsonObj = jsonArray.getJSONObject(i);
+                    JSONObject jsonObject = new JSONObject(s);
+                    JSONArray JsonArray = jsonObject.getJSONArray("datas");
+                    JSONObject jsonObject1 = null;
 
+                    for (int i = 0; i < JsonArray.length();i++){
+
+                        jsonObject1 = JsonArray.getJSONObject(i);
                         ItemDonatur donatur = new ItemDonatur();
 
-                        donatur.setId(JsonObj.getString("id_ide"));
-                        donatur.setJml_donasi(JsonObj.getString("jumlah_donasi"));
-                        donatur.setNama_donatur(JsonObj.getString("nama"));
+                        donatur.setNama_donatur(jsonObject1.getString("nama"));
+                        donatur.setJml_donasi(jsonObject1.getString("jumlah_donasi"));
 
-                        arrayItembaru.add(donatur);
-
+                        arrayItemBaru.add(donatur);
                     }
 
-                } catch (JSONException e) {
+                } catch (JSONException e){
                     e.printStackTrace();
                 }
+                for (int j = 0;j < arrayItemBaru.size();j++){
 
-                for(int j=0;j<arrayItembaru.size();j++){
+                    semuaItemObj = arrayItemBaru.get(j);
 
-                    semuaItemobj = arrayItembaru.get(j);
-
-                    allid.add(semuaItemobj.getId());
-                    arrayid = allid.toArray(arrayid);
-
-                    alldana.add(semuaItemobj.getJml_donasi());
-                    arraydana = alldana.toArray(arraydana);
-
-                    allnama.add(semuaItemobj.getNama_donatur());
+                    allnama.add(semuaItemObj.getNama_donatur());
                     arraynama = allnama.toArray(arraynama);
 
+                    alldana.add(semuaItemObj.getJml_donasi());
+                    arraydana = alldana.toArray(arraydana);
                 }
 
                 setAllAdapter();
-
             }
         }
     }
 
     public void setAllAdapter(){
-        objAdapter = new DonaturAdapter(getActivity(),R.layout.item_donatur,arrayItembaru);
+        objAdapter = new DonaturAdapter(getActivity(),R.layout.item_donatur,arrayItemBaru);
         listData.setAdapter(objAdapter);
     }
+
 }

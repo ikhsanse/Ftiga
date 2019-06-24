@@ -22,7 +22,7 @@
     </LinearLayout>
 
     <GridView
-        android:id="@+id/rv_donatur"
+        android:id="@+id/gv_donatur"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="8dp"
