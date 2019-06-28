@@ -36,8 +36,8 @@ public class PaketActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paket);
 
-        id_ide = getIntent().getExtras().getString("id_ide");
         id_user = getIntent().getExtras().getString("id_user");
+        id_ide = getIntent().getExtras().getString("id_ide");
 
         listData = findViewById(R.id.paket_rv);
         paketList= new ArrayList<ItemPaket>();
@@ -54,7 +54,7 @@ public class PaketActivity extends AppCompatActivity{
         arrayfeedback = new String[allfeedback.size()];
 
         if(JsonUtils.isNetworkAvailable(PaketActivity.this)){
-            new Tampil().execute("http://192.168.100.13/test/get_paket.php?id_ide="+id_ide);
+            new Tampil().execute("http://fff.invicit.com/test/get_paket.php?id_ide="+id_ide);
         }else{
             new AlertDialog.Builder(PaketActivity.this)
                     .setTitle("Failed")
@@ -87,14 +87,14 @@ public class PaketActivity extends AppCompatActivity{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 semuaItemobj = paketList.get(position);
 
+                id_ide = semuaItemobj.getId_ide();
                 String id_paket = semuaItemobj.getId();
-                String id_ide = semuaItemobj.getId_ide();
                 String jml_donasi = semuaItemobj.getHarga();
 
                 Intent a = new Intent(PaketActivity.this ,DonasiActivity.class);
+                a.putExtra("id_user",id_user);
                 a.putExtra("id_ide",id_ide);
                 a.putExtra("id_paket",id_paket);
-                a.putExtra("id_user",id_user);
                 a.putExtra("jumlah_donasi", jml_donasi);
                 startActivity(a);
             }
@@ -154,9 +154,12 @@ public class PaketActivity extends AppCompatActivity{
 
                         ItemPaket paket = new ItemPaket();
 
+
+                        paket.setId(JsonObj.getString("id_paket"));
                         paket.setPaket(JsonObj.getString("nama"));
                         paket.setHarga(JsonObj.getString("harga"));
                         paket.setFeedback(JsonObj.getString("feedback"));
+                        paket.setId_ide(JsonObj.getString("id_ide"));
 
                         paketList.add(paket);
 

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Qna"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_form_ide3"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/merah"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:title="QNA">
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="QnA"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="30dp"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="-Q: Bagaimana saya dapat mencairkan dana donasi saya? \n -A: Dengan cara melakukan Klik pencairan maka dana anda akan dicairkan sebanyak 2 kali yakni 70% pertama dan 30% kedua. \n\n-Q: Apakah syarat untuk mendapatkan donasi? \n -A: Untuk mendapatkan donasi anda di wajibkan untuk memposting ide kuliner kreatif anda dengan mengikuti syarat dan ketentuan yang ada. \n\n-Q: Bagaimana cara saya melakukan donasi? \n-A: Untuk melakukan donasi anda diwajibkan login terlebih dahulu, Anda bisa memilih ide mana yang ingin anda donasi kan dan lakukan klik donasi pada ide tersebut dan anda akan mendapatkan nomor rekening FFF dan anda hanya perlu mentransfer sejumlah pilihan yang telah dipilih, kemudian upload bukti transfer anda maka pihak FFF akan mengkonfirmasi dana yang telah anda donasikan.  "
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:layout_marginTop="5dp" />
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

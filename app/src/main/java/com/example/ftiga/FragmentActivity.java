@@ -11,7 +11,7 @@ import android.view.MenuItem;
 
 public class FragmentActivity extends AppCompatActivity {
 
-    String id_user,judul_ide;
+    String id_user,judul_ide, id_ide, foto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class FragmentActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new HomeFragment()).commit();
 
-        id_user = getIntent().getExtras().getString("id");
+        id_user = getIntent().getExtras().getString("id_user");
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -46,9 +46,9 @@ public class FragmentActivity extends AppCompatActivity {
                         case R.id.nav_ide:
                             selectedFragment = new IdeFragment();
                             break;
-                        case R.id.nav_chat:
-                            selectedFragment = new ChatFragment();
-                            break;
+//                        case R.id.nav_chat:
+//                            selectedFragment = new ChatFragment();
+//                            break;
                         case R.id.nav_profile:
                             selectedFragment = new ProfileFragment();
                             break;
@@ -74,32 +74,36 @@ public class FragmentActivity extends AppCompatActivity {
                 f = new HomeFragment();
 
                 Bundle data = new Bundle();
-                data.putString("id",id_user);
+                data.putString("id_user",id_user);
+                data.putString("id_ide",id_ide);
+                data.putString("foto",foto);
                 data.putString("judul_ide",judul_ide);
                 f.setArguments(data);
             }
             if (position == 1) {
                 f = new DiscoverFragment();
                 Bundle data = new Bundle();
-                data.putString("id",id_user);
+                data.putString("id_user",id_user);
+                data.putString("id_ide",id_ide);
+                data.putString("judul_ide",judul_ide);
                 f.setArguments(data);
             }
             if (position == 2) {
                 f = new IdeFragment();
                 Bundle data = new Bundle();
-                data.putString("id",id_user);
+                data.putString("id_user",id_user);
                 f.setArguments(data);
             }
+//            if (position == 3) {
+//                f = new ChatFragment();
+//                Bundle data = new Bundle();
+//                data.putString("id_user",id_user);
+//                f.setArguments(data);
+//            }
             if (position == 3) {
-                f = new ChatFragment();
-                Bundle data = new Bundle();
-                data.putString("id",id_user);
-                f.setArguments(data);
-            }
-            if (position == 4) {
                 f = new ProfileFragment();
                 Bundle data = new Bundle();
-                data.putString("id",id_user);
+                data.putString("id_user",id_user);
                 f.setArguments(data);
             }
             return f;

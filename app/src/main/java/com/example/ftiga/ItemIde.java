@@ -6,6 +6,7 @@ public class ItemIde {
     private String dana;
     private String nama;
     private String deskripsi;
+    private String foto;
 
     public String getId() {
         return id;
@@ -45,5 +46,13 @@ public class ItemIde {
 
     public void setDeskripsi(String deskripsi) {
         this.deskripsi = deskripsi;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 }

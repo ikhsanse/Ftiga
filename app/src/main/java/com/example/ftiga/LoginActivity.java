@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
                 us = edtEmail.getText().toString();
                 ps = edtPassword.getText().toString();
                 if(JsonUtils.isNetworkAvailable(LoginActivity.this)){
-                    new Tampil().execute("http://192.168.100.13/test/login.php?email="+us+"&password="+ps);
+                    new Tampil().execute("http://fff.invicit.com/test/login.php?email="+us+"&password="+ps);
                 }else{
                     new AlertDialog.Builder(LoginActivity.this)
                             .setTitle("Failed")
@@ -158,7 +158,7 @@ public class LoginActivity extends AppCompatActivity {
                                         public void onClick(DialogInterface dialog, int which) {
                                             finish();
                                             Intent a = new Intent(LoginActivity.this, FragmentActivity.class);
-                                            a.putExtra("id",id_user);
+                                            a.putExtra("id_user",id_user);
                                             a.putExtra("nama",nama);
                                             startActivity(a);
                                         }

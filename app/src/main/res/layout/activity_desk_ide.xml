@@ -26,6 +26,7 @@
         android:background="@color/colorWhite">
 
         <ImageView
+            android:id="@+id/img_gbrIde"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/slide_3"

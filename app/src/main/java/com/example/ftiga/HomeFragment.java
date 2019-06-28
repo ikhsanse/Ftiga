@@ -40,8 +40,8 @@ public class HomeFragment extends Fragment {
     List<ItemIde> arrayItembaru;
     IdeAdapter objAdapter;
     private ItemIde semuaItemobj;
-    ArrayList<String> allid, alljudul, alldana, allnama;
-    String[] arrayid, arrayjudul, arraydana, arraynama;
+    ArrayList<String> allid, alljudul, alldana, allnama, allgambar;
+    String[] arrayid, arrayjudul, arraydana, arraynama, arraygambar;
     ProgressBar progress;
     EditText by;
 
@@ -62,7 +62,7 @@ public class HomeFragment extends Fragment {
         carouselView.setPageCount(sampleImages.length);
         carouselView.setImageListener(imageListener);
 
-        id_user = getActivity().getIntent().getExtras().getString("id");
+        id_user = getActivity().getIntent().getExtras().getString("id_user");
 
         Toolbar tb = (Toolbar) rootView.findViewById(R.id.tb_home);
         ((AppCompatActivity)getActivity()).setSupportActionBar(tb);
@@ -77,15 +77,17 @@ public class HomeFragment extends Fragment {
         alljudul = new ArrayList<String>();
         alldana = new ArrayList<String>();
         allnama = new ArrayList<String>();
+        allgambar = new ArrayList<String>();
 
         //menghitung jumlah data
         arrayid = new String[allid.size()];
         arrayjudul = new String[alljudul.size()];
         arraydana = new String[alldana.size()];
         arraynama = new String[allnama.size()];
+        arraygambar = new String[allgambar.size()];
 
         if(JsonUtils.isNetworkAvailable(getActivity())){
-            new Tampil().execute("http://192.168.100.13/test/get_ide.php");
+            new Tampil().execute("http://fff.invicit.com/test/get_ide.php");
         }else{
             new AlertDialog.Builder(getActivity())
                     .setTitle("Failed")
@@ -114,7 +116,7 @@ public class HomeFragment extends Fragment {
                 String deskripsi = semuaItemobj.getDeskripsi();
 
                 Intent a = new Intent(getActivity() ,DeskIdeActivity.class);
-                a.putExtra("id",id_user);
+                a.putExtra("id_user",id_user);
                 a.putExtra("id_ide",id_ide);
                 a.putExtra("judul_ide",judul_ide);
                 a.putExtra("nama",nama);
@@ -197,6 +199,7 @@ public class HomeFragment extends Fragment {
                         ide.setDana(JsonObj.getString("dana"));
                         ide.setNama(JsonObj.getString("nama"));
                         ide.setDeskripsi(JsonObj.getString("deskripsi"));
+                        ide.setFoto(JsonObj.getString("ft1"));
 
                         arrayItembaru.add(ide);
 
@@ -221,6 +224,9 @@ public class HomeFragment extends Fragment {
 
                     allnama.add(semuaItemobj.getNama());
                     arraynama = allnama.toArray(arraynama);
+
+                    allgambar.add(semuaItemobj.getFoto());
+                    arraygambar = allgambar.toArray(arraygambar);
 
                 }
 

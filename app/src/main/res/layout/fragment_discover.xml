@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context=".FragmentActivity">
 
-    <EditText
+    <SearchView
         android:drawablePadding="8dp"
         android:drawableLeft="@drawable/ic_search_gray_24dp"
         android:textColor="@color/content_text_color"

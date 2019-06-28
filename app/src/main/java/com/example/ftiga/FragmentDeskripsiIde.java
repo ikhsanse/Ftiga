@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class FragmentDeskripsiIde extends Fragment implements View.OnClickListener {
+public class FragmentDeskripsiIde extends Fragment {
 
     private View view;
 
@@ -31,7 +31,7 @@ public class FragmentDeskripsiIde extends Fragment implements View.OnClickListen
 
         view = inflater.inflate(R.layout.activity_deskripsi_ide, container,false);
 
-        id_user = getActivity().getIntent().getExtras().getString("id");
+        id_user = getActivity().getIntent().getExtras().getString("id_user");
         id_ide = getActivity().getIntent().getExtras().getString("id_ide");
         judul_ide = getActivity().getIntent().getExtras().getString("judul_ide");
         nama = getActivity().getIntent().getExtras().getString("nama");
@@ -49,12 +49,20 @@ public class FragmentDeskripsiIde extends Fragment implements View.OnClickListen
         desk.setText(deskripsi);
 
         btn_donasi = (Button) view.findViewById(R.id.btn_donasiSkrg);
-        btn_donasi.setOnClickListener(this);
+        btn_donasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PaketActivity.class);
+                intent.putExtra("id_user",id_user);
+                intent.putExtra("id_ide",id_ide);
+                getActivity().startActivity(intent);
+            }
+        });
 
         return view;
     }
 
-    @Override
+/*    @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_donasiSkrg:
@@ -66,6 +74,6 @@ public class FragmentDeskripsiIde extends Fragment implements View.OnClickListen
             default:
                 break;
         }
-    }
+    }*/
 
 }

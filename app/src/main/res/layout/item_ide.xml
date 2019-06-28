@@ -97,6 +97,7 @@
                         android:id="@+id/txt_dana"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/colorWhite"
                         android:text="Rp9.000.000"
 
                         android:textStyle="bold" />

@@ -31,6 +31,7 @@ public class FormIde2 extends AppCompatActivity implements EditorControlBar.Edit
     private final int REQUEST_IMAGE_SELECTOR = 110;
     private MarkDEditor markDEditor;
     private EditorControlBar editorControlBar;
+    String judul, target, tanggal,id_user, image;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -50,11 +51,22 @@ public class FormIde2 extends AppCompatActivity implements EditorControlBar.Edit
         editorControlBar.setEditorControlListener(this);
         editorControlBar.setEditor(markDEditor);
 
+
+        getData();
+
+
         Button btnNext3 = (Button) findViewById(R.id.btnnext3);
         btnNext3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String editor = markDEditor.getMarkdownContent();
                 Intent intent = new Intent(FormIde2.this, form_ide3.class);
+                intent.putExtra("judul", judul);
+                intent.putExtra("target", target);
+                intent.putExtra("tanggal", tanggal);
+                intent.putExtra("editor", editor);
+                intent.putExtra("id", id_user);
+                intent.putExtra("image", image);
                 startActivity(intent);
             }
         });
@@ -65,6 +77,21 @@ public class FormIde2 extends AppCompatActivity implements EditorControlBar.Edit
 
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
+
+
+
+    }
+
+    void getData(){
+//        Data Aktivity sebelumnya
+        judul = getIntent().getStringExtra("judul");
+        target = getIntent().getExtras().getString("target");
+        tanggal = getIntent().getExtras().getString("tanggal");
+        id_user = getIntent().getExtras().getString("id");
+        image = getIntent().getExtras().getString("image");
+
+//        Data Aktivity Sekarang
+
     }
 
     //Tombol back

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    tools:context=".About_Us">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tentang Kami"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:gravity="center"/>
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Punya ide bisnis kuliner, tapi nggak punya modal?
+        Dengan Fund For Food kamu bisa memposting ide kamu untuk menggalang dana modal. Selain itu, kamu juga dapat mempromosikan ide bisnis kuliner kreatif kamu!"/>
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kenapa donasi di FFF ? &amp; Kenapa Kuliner Kreatif ?"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dengan berdonasi kepada para calon pengusaha dapat membantu Indonesia meningkatkan Perekonomian dibidang Ekonomi kreatif."
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\nIndonesia menjadi salah satu negara di dunia yang memiliki kinerja ekonomi paling hebat. Tahun 2015 lalu, kita mencatatkan pertumbuhan Produk Domestik Bruto (PDB) 4,79%, lebih tinggi daripada pertumbuhan ekonomi global yang diperkirakan hanya mencapai 2,4%. -BEKRAF"/>
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\nCrowd Funding dengan Feedback\n\n Selain membantu para calon pengusaha kuliner dengan berdonasi, anda akan mendapatkan feedback menari dari setiap donasi yang dilakukan."/>
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Developer"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"/>
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Abdullah Khalid Yahya                 +62812-1089-6276"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Guntur Januar Fitriano                +62896-5651-8334"/>
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hizkia Robinsar Marpaung         +62896-3569-4040"/>
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ikhsan Solihin                                +62857-7363-5921"/>
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jack Martin Reinaldo                  +62857-1146-9280"/>
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Muhammad Adhi Herlianto       +62895-1620-5654"/>
+
+            <TextView
+                android:background="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="E-mail : fff@gmail.com"/>
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Website : www.fff.com"/>
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Instagram : FundForFood"/>
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Find us at Play Store"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

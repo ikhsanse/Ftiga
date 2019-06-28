@@ -50,7 +50,7 @@ public class FragmentDonaturIde extends Fragment {
         arraydana = new  String[alldana.size()];
 
         if(JsonUtils.isNetworkAvailable(getActivity())){
-            new Tampil().execute("http://192.168.100.13/test/get_donatur_ide.php?id_ide="+id_ide);
+            new Tampil().execute("http://fff.invicit.com/test/get_donatur_ide.php?id_ide="+id_ide);
         }else{
             new AlertDialog.Builder(getActivity())
                     .setTitle("Failed")

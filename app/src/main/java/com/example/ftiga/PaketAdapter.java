@@ -15,7 +15,7 @@ public class PaketAdapter extends ArrayAdapter<ItemPaket> {
     private List<ItemPaket> itembaru;
     private ItemPaket semuaobj;
     private int row;
-    Context ctx;
+
     public PaketAdapter(Activity act, int resource, List<ItemPaket> arraylist) {
         super(act, resource, arraylist);
         this.activity = act;

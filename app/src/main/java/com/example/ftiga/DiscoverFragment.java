@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ProgressBar;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,9 +32,12 @@ public class DiscoverFragment extends Fragment implements View.OnClickListener {
     List<ItemIde> arrayItembaru;
     IdeAdapter objAdapter;
     private ItemIde semuaItemobj;
-    ArrayList<String> allid, alljudul, alldana, allnama;
-    String[] arrayid, arrayjudul,  arraydana, arraynama;
+    ArrayList<String> allid, alljudul, alldana, allnama, allgambar;
+    String[] arrayid, arrayjudul,  arraydana, arraynama, arraygambar;
     ProgressBar progress;
+
+    int textlength = 0;
+    SearchView search;
 
     String data, id_user;
 
@@ -43,7 +48,7 @@ public class DiscoverFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
       rootView = inflater.inflate(R.layout.fragment_discover, container, false);
 
-        id_user = getActivity().getIntent().getExtras().getString("id");
+        id_user = getActivity().getIntent().getExtras().getString("id_user");
 
         progress = (ProgressBar)rootView.findViewById(R.id.menu_drawer_oleh_progbar);
 
@@ -54,14 +59,17 @@ public class DiscoverFragment extends Fragment implements View.OnClickListener {
         alljudul = new ArrayList<String>();
         alldana = new ArrayList<String>();
         allnama = new ArrayList<String>();
+        allgambar = new ArrayList<String>();
 
+        //menghitung jumlah data
         arrayid = new String[allid.size()];
         arrayjudul = new String[alljudul.size()];
         arraydana = new String[alldana.size()];
         arraynama = new String[allnama.size()];
+        arraygambar = new String[allgambar.size()];
 
         if(JsonUtils.isNetworkAvailable(getActivity())){
-            new Tampil().execute("http://192.168.100.13/test/get_ide.php");
+            new Tampil().execute("http://fff.invicit.com/test/get_ide.php");
         }else{
             new AlertDialog.Builder(getActivity())
                     .setTitle("Failed")
@@ -102,7 +110,58 @@ public class DiscoverFragment extends Fragment implements View.OnClickListener {
             }
         });
 
+        searchdata();
+
         return rootView;
+    }
+
+    public void searchdata() {
+        search = (SearchView) rootView.findViewById(R.id.search_input);
+
+        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextChange(String text) {
+                // TODO Auto-generated method stub
+                textlength = text.length();
+                arrayItembaru.clear();
+
+                String sc = search.getQuery().toString();
+
+                if (sc==semuaItemobj.getJudul_ide()) {
+
+                    for (int i = 0; i < arrayjudul.length; i++) {
+                        if (textlength <= arrayjudul[i].length()) {
+                            if (text.toString().equalsIgnoreCase((String) arrayjudul[i].subSequence(0, textlength))) {
+                                ItemIde data = new ItemIde();
+
+                                data.setId(arrayid[i]);
+                                data.setJudul_ide(arrayjudul[i]);
+                                data.setDana(arraydana[i]);
+                                data.setNama(arraynama[i]);
+                                data.setFoto(arraygambar[i]);
+
+                                arrayItembaru.add(data);
+                            }
+                        }
+                    }
+
+                    setAllAdapter();
+
+                }else {
+                    Toast.makeText(getActivity(), "Data Tidak Ditemukan", Toast.LENGTH_SHORT).show();
+                }
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // TODO Auto-generated method stub
+                return false;
+            }
+        });
+
     }
 
     @Override
@@ -180,6 +239,7 @@ public class DiscoverFragment extends Fragment implements View.OnClickListener {
                         ide.setDana(JsonObj.getString("dana"));
                         ide.setNama(JsonObj.getString("nama"));
                         ide.setDeskripsi(JsonObj.getString("deskripsi"));
+                        ide.setFoto(JsonObj.getString("ft1"));
 
                         arrayItembaru.add(ide);
 
@@ -204,6 +264,9 @@ public class DiscoverFragment extends Fragment implements View.OnClickListener {
 
                     allnama.add(semuaItemobj.getNama());
                     arraynama = allnama.toArray(arraynama);
+
+                    allgambar.add(semuaItemobj.getFoto());
+                    arraygambar = allgambar.toArray(arraygambar);
                 }
 
                 setAllAdapter();

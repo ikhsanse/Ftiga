@@ -22,7 +22,7 @@ public class FlashActivity extends AppCompatActivity {
         Thread timer = new Thread(){
             public void run (){
                  try {
-                     sleep(1500);
+                     sleep(2000);
                      } catch (InterruptedException e){
                         e.printStackTrace();
                      }

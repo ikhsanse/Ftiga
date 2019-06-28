@@ -13,9 +13,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import org.apache.http.HttpResponse;
@@ -43,7 +45,7 @@ public class EditProfil extends AppCompatActivity {
     EditText nm_Profil, alamat, eemail, no_tlp, no_rek, no_ktp;
 
     Button simpan;
-    private ImageButton addGambar;
+    private ImageView addGambar;
 
     Bitmap bitmap;
 
@@ -59,7 +61,7 @@ public class EditProfil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profil);
 
-        id_user = getIntent().getExtras().getString("id");
+        id_user = getIntent().getExtras().getString("id_user");
         nama = getIntent().getExtras().getString("nama");
         email = getIntent().getExtras().getString("email");
 
@@ -72,7 +74,7 @@ public class EditProfil extends AppCompatActivity {
 
         simpan = (Button) findViewById(R.id.btnSimpanProfil);
 
-        addGambar = (ImageButton) findViewById(R.id.addGambar);
+        addGambar = (ImageView) findViewById(R.id.addGambar);
 
         addGambar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,25 +89,44 @@ public class EditProfil extends AppCompatActivity {
         simpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                namus = nm_Profil.getText().toString();
-                almus = alamat.getText().toString();
-                emus = eemail.getText().toString();
-                tlpus = no_tlp.getText().toString();
-                rekus = no_rek.getText().toString();
-                ktpus = no_ktp.getText().toString();
-
-                UploadImageServer();
+                if (bitmap == null){
+                    UploadNoGambar();
+                }
+                else{
+                    UploadGambar();
+                }
             }
         });
 
+
+
         if(JsonUtils.isNetworkAvailable(EditProfil.this)){
-            new Tampil().execute("http://192.168.100.13/test/get_edit_profil.php?id_user="+ id_user);
+            new Tampil().execute("http://fff.invicit.com/test/get_edit_profil.php?id_user="+ id_user);
         }else{
             Toast.makeText(EditProfil.this,"No Network Connection!!!",Toast.LENGTH_SHORT).show();
         }
 
     }
+    public void UploadGambar(){
+        namus = nm_Profil.getText().toString();
+        almus = alamat.getText().toString();
+        emus = eemail.getText().toString();
+        tlpus = no_tlp.getText().toString();
+        rekus = no_rek.getText().toString();
+        ktpus = no_ktp.getText().toString();
 
+        UploadImageServer();
+    }
+    public void UploadNoGambar(){
+        namus = nm_Profil.getText().toString();
+        almus = alamat.getText().toString();
+        emus = eemail.getText().toString();
+        tlpus = no_tlp.getText().toString();
+        rekus = no_rek.getText().toString();
+        ktpus = no_ktp.getText().toString();
+
+        NoUploadImageServer();
+    }
     @Override
     public boolean onSupportNavigateUp() {
         finish();
@@ -157,12 +178,20 @@ public class EditProfil extends AppCompatActivity {
                         no_ktp.setText(JsonObj.getString("no_ktp"));
                         foto = JsonObj.getString("foto");
 
-                        Picasso
-                                .get()
-                                .load(foto)
-                                .fit()
-                                .into(addGambar);
 
+                        if(foto.equals("")){
+                            addGambar.setImageResource(R.drawable.default_avatar);
+                        }
+                        else{
+                            Picasso
+                                    .get()
+                                    .load("http://fff.invicit.com/test/MyFiles/profil/"+id_user+".jpg")
+                                    .resize(100,100)
+                                    .memoryPolicy(MemoryPolicy.NO_CACHE)
+                                    .networkPolicy(NetworkPolicy.NO_CACHE)
+                                    .into(addGambar);
+
+                        }
                     }
 
                 } catch (JSONException e) {
@@ -231,6 +260,44 @@ public class EditProfil extends AppCompatActivity {
         new Edit().execute();
     }
 
+
+    //tanpa Image
+
+    public void NoUploadImageServer() {
+
+        /*ByteArrayOutputStream byteArrayOutputStreamObject ;
+        byteArrayOutputStreamObject = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStreamObject);
+        byte[] byteArrayVar = byteArrayOutputStreamObject.toByteArray();
+//
+        final String ConvertImage = Base64.encodeToString(byteArrayVar, Base64.DEFAULT);*/
+
+        class EditNoGambar extends AsyncTask<Void, Void, Void> {
+            ProgressDialog dialog;
+
+            @Override
+            protected void onPreExecute() {
+                dialog = ProgressDialog.show(EditProfil.this,"","Harap Tunggu...",true);
+
+            }
+
+            @Override
+            protected Void doInBackground(Void... params) {
+
+                Result = getEditNoGambar(id_user,namus,almus,emus,tlpus,rekus,ktpus);
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void result) {
+                dialog.dismiss();
+                resultEdit(Result);
+            }
+        }
+
+        new EditNoGambar().execute();
+    }
+
     public void resultEdit(String HasilProses){
         if(HasilProses.trim().equalsIgnoreCase("OK")){
             Toast.makeText(EditProfil.this, "Profil berhasil diubah", Toast.LENGTH_SHORT).show();
@@ -248,14 +315,41 @@ public class EditProfil extends AppCompatActivity {
         String result = "";
 
         HttpClient client = new DefaultHttpClient();
-        HttpPost request = new HttpPost("http://192.168.100.13/test/update_profil.php");
+        HttpPost request = new HttpPost("http://fff.invicit.com/test/update_profil.php");
         try{
-            List<NameValuePair> nvp = new ArrayList<NameValuePair>(8);
+            List<NameValuePair> nvp = new ArrayList<NameValuePair>(9);
             nvp.add(new BasicNameValuePair("id_user",id_user));
             nvp.add(new BasicNameValuePair("nama",nm_profil));
             nvp.add(new BasicNameValuePair("alamat",alamat));
             nvp.add(new BasicNameValuePair("email",eemail));
             nvp.add(new BasicNameValuePair("foto",addGambar));
+            nvp.add(new BasicNameValuePair("no_tlp",no_tlp));
+            nvp.add(new BasicNameValuePair("no_rek",no_rek));
+            nvp.add(new BasicNameValuePair("no_ktp",no_ktp));
+            request.setEntity(new UrlEncodedFormEntity(nvp, HTTP.UTF_8));
+            HttpResponse response = client.execute(request);
+            result = request(response);
+
+        }catch (Exception ex){
+            result = "Unable To connect";
+        }
+
+        return result;
+    }
+
+
+    //no GAmbar
+    public String getEditNoGambar(String id_user,String nm_profil, String alamat, String eemail, String no_tlp, String no_rek, String no_ktp){
+        String result = "";
+
+        HttpClient client = new DefaultHttpClient();
+        HttpPost request = new HttpPost("http://fff.invicit.com/test/update_profil_nogambar.php");
+        try{
+            List<NameValuePair> nvp = new ArrayList<NameValuePair>(9);
+            nvp.add(new BasicNameValuePair("id_user",id_user));
+            nvp.add(new BasicNameValuePair("nama",nm_profil));
+            nvp.add(new BasicNameValuePair("alamat",alamat));
+            nvp.add(new BasicNameValuePair("email",eemail));
             nvp.add(new BasicNameValuePair("no_tlp",no_tlp));
             nvp.add(new BasicNameValuePair("no_rek",no_rek));
             nvp.add(new BasicNameValuePair("no_ktp",no_ktp));

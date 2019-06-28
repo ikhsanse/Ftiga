@@ -60,15 +60,15 @@
                     android:text="Pilih Foto"
                     android:textSize="23sp"/>
 
-                <Button
-                    android:id="@+id/btnFoto"
-                    android:text="Choose"
-                    android:layout_weight="1"
+                <ImageView
+                    android:id="@+id/pilihGambar"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="250dp"
+                    android:background="@color/colorLightGrey"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="30dp"
                     android:layout_marginTop="20dp"
-                    android:textColor="#fff"
-                    android:background="@color/merah"/>
+                    android:src="@drawable/addimage" />
 
             </LinearLayout>
 
