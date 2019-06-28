@@ -55,7 +55,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(getActivity(), Layout_history_donasi.class);
+                Intent intent1 = new Intent(getActivity(), layout_history_donasi.class);
                 getActivity().startActivity(intent1);
             }
         });

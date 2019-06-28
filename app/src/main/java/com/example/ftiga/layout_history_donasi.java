@@ -1,10 +1,10 @@
 package com.example.ftiga;
 
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Layout_history_donasi extends AppCompatActivity {
+public class layout_history_donasi extends AppCompatActivity {
 
     HistoryDonaturAdapter objAdapter;
     ListView listData;
@@ -30,7 +30,6 @@ public class Layout_history_donasi extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_layout_history_donasi);
-
         listData = findViewById(R.id.lv_history_donatur);
         progressBar = findViewById(R.id.progbar);
         arrayItemBaru = new ArrayList<ItemHistoryDonatur>();
@@ -43,10 +42,10 @@ public class Layout_history_donasi extends AppCompatActivity {
 
         final int id_user = 1;
 
-        if(JsonUtils.isNetworkAvailable(Layout_history_donasi.this)){
+        if(JsonUtils.isNetworkAvailable(layout_history_donasi.this)){
             new Tampil().execute("http://fff.invicit.com/test/get_history_donatur_byid.php?id_user="+id_user);
         }else{
-            new AlertDialog.Builder(Layout_history_donasi.this)
+            new AlertDialog.Builder(layout_history_donasi.this)
                     .setTitle("Failed")
                     .setMessage("Harap Periksa Koneksi!")
                     .setCancelable(false)
@@ -61,7 +60,7 @@ public class Layout_history_donasi extends AppCompatActivity {
     }
 
 
-    public class Tampil extends AsyncTask<String,Void,String>{
+    public class Tampil extends AsyncTask<String,Void,String> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -81,7 +80,7 @@ public class Layout_history_donasi extends AppCompatActivity {
             }
 
             if(s == null || s.length() == 0 ){
-                new AlertDialog.Builder(Layout_history_donasi.this)
+                new AlertDialog.Builder(layout_history_donasi.this)
                         .setTitle("failed")
                         .setMessage("Harap Periksa Koneksi")
                         .setCancelable(false)
@@ -132,12 +131,7 @@ public class Layout_history_donasi extends AppCompatActivity {
     }
 
     public void setAllAdapter(){
-        objAdapter = new HistoryDonaturAdapter(Layout_history_donasi.this,R.layout.activity_history_donasi,arrayItemBaru);
+        objAdapter = new HistoryDonaturAdapter(layout_history_donasi.this,R.layout.activity_history_donasi,arrayItemBaru);
         listData.setAdapter(objAdapter);
     }
-
-
-
 }
-
-
