@@ -51,6 +51,15 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         edtProfil = (TextView) view.findViewById(R.id.tv_profile);
         edtProfil.setOnClickListener(this);
 
+        history = (CardView) view.findViewById(R.id.cv_profil1);
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(getActivity(), Layout_history_donasi.class);
+                getActivity().startActivity(intent1);
+            }
+        });
+
         qna = (CardView) view.findViewById(R.id.cv_profil2);
         qna.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,6 +1,5 @@
 package com.example.ftiga;
 
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +27,7 @@ public class HistoryIdeActivity extends RecyclerView.Adapter<HistoryIdeActivity.
         public ViewHolder(View v) {
             super(v);
             tv_judul_ide = (TextView) v.findViewById(R.id.tv_judul_ide);
-            tv_jumlah_donasi = (TextView) v.findViewById(R.id.tv_jumlah_donasi);
+            tv_jumlah_donasi = (TextView) v.findViewById(R.id.tv_total_dana);
         }
     }
 
