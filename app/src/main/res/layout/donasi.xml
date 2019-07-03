@@ -98,7 +98,7 @@
             android:id="@+id/tv_btsWaktu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="transfer sebelum 16 Mei 2019 17:00 WIB atau donasi kamu otomatis dibatalkan oleh sistem."
+            android:text="transfer sebelum 30 Juni 2019 17:00 WIB atau donasi kamu otomatis dibatalkan oleh sistem."
             android:textAlignment="center"
             android:padding="40dp"
             android:textSize="16dp"/>

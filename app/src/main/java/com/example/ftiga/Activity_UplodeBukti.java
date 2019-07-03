@@ -156,7 +156,7 @@ public class Activity_UplodeBukti extends AppCompatActivity {
                     .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-//                            Intent a = new Intent(Activity_UplodeBukti.this,Activity_UplodeBukti.class);
+//                            Intent a = new Intent(Activity_UplodeBukti.this, PaketActivity.class);
 //                            startActivity(a);
                         }
                     }).show();

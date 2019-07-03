@@ -149,7 +149,12 @@ public class LoginActivity extends AppCompatActivity {
 //                                        }
 //                                    }).show();
 //                        }else{
-                            new AlertDialog.Builder(LoginActivity.this)
+
+                        Intent a = new Intent(LoginActivity.this, FragmentActivity.class);
+                        a.putExtra("id_user",id_user);
+                        a.putExtra("nama",nama);
+                        startActivity(a);
+                            /*new AlertDialog.Builder(LoginActivity.this)
                                     .setTitle("Succes")
                                     .setMessage("Login Berhasil!")
                                     .setCancelable(false)
@@ -162,7 +167,7 @@ public class LoginActivity extends AppCompatActivity {
                                             a.putExtra("nama",nama);
                                             startActivity(a);
                                         }
-                                    }).show();
+                                    }).show();*/
 //                        }
 
                     } else {
